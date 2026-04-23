@@ -1,0 +1,162 @@
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --danger: #dc2626;
+  --border: #d1d5db;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.auth-page,
+.dashboard-page {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.auth-page h1,
+.dashboard-page header h1,
+.item-form-card h2,
+.search-card h2,
+.item-list-card h2 {
+  margin: 0 0 20px;
+}
+
+form {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  font-weight: 600;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+  border: none;
+}
+
+button.logout-button {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  border-radius: 10px;
+}
+
+.error-message {
+  background: #fee2e2;
+  color: var(--danger);
+  padding: 12px 14px;
+  border-radius: 10px;
+}
+
+.summary-card,
+.item-form-card,
+.search-card,
+.item-list-card {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  display: grid;
+  gap: 10px;
+}
+
+.filters-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .item-list-card table,
+  .item-list-card thead,
+  .item-list-card tbody,
+  .item-list-card th,
+  .item-list-card td,
+  .item-list-card tr {
+    display: block;
+  }
+
+  .item-list-card tr {
+    margin-bottom: 14px;
+  }
+
+  .item-list-card td {
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .item-list-card td::before {
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+
+  .item-list-card td:nth-of-type(1)::before { content: 'Item Name'; }
+  .item-list-card td:nth-of-type(2)::before { content: 'Description'; }
+  .item-list-card td:nth-of-type(3)::before { content: 'Type'; }
+  .item-list-card td:nth-of-type(4)::before { content: 'Location'; }
+  .item-list-card td:nth-of-type(5)::before { content: 'Date'; }
+  .item-list-card td:nth-of-type(6)::before { content: 'Contact Info'; }
+  .item-list-card td:nth-of-type(7)::before { content: 'Reported By'; }
+  .item-list-card td:nth-of-type(8)::before { content: 'Actions'; }
+}
